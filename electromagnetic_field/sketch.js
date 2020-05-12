@@ -18,7 +18,7 @@ function setup(){
 		for(let k = 0; k < gridsize; k++){
 			let thepos = [j,k];
 			//float E  = 0;
-			let E  = random(-4,4);
+			let E  = random(-2,2);
 			// if(k==5 && j==5){ E = 2; }
 			let By = 0;
 			let Bz = 0;
