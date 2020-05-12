@@ -18,7 +18,7 @@ function setup(){
 		for(let k = 0; k < gridsize; k++){
 			let thepos = [j,k];
 			//float E  = 0;
-			let E  = random(-2,2);
+			let E  = random(-1,1);
 			// if(k==5 && j==5){ E = 2; }
 			let By = 0;
 			let Bz = 0;
@@ -28,7 +28,7 @@ function setup(){
   background(5);
 }
 
-function draw(){
+function draw(){	
 	translate(left_trans, up_trans)
     background(0);
     for(let j = 0; j < gridsize; j++){
@@ -48,8 +48,8 @@ function draw(){
 class points{
 
 	// pos = []
-  constructor(pose, E, By, Bz){
-    this.pos = pose; this.E = E; this.By = By; this.Bz = Bz;
+  constructor(pos, E, By, Bz){
+    this.pos = pos; this.E = E; this.By = By; this.Bz = Bz;
   }
   
   calculate(){ this.maxwell3(); this.maxwell4(); }
@@ -112,6 +112,6 @@ function resizing(){
  	left_trans = max((windowWidth  - interval*(gridsize-1))/2 , 0);
 	up_trans   = max((windowHeight - interval*(gridsize-1))/2 , 0);
 	scB = interval/8;
-	scE = interval/3;
+	scE = interval/2;
 	// print(interval);
 }
