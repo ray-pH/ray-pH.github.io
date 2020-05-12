@@ -18,7 +18,7 @@ function setup(){
 		for(let k = 0; k < gridsize; k++){
 			let thepos = [j,k];
 			//float E  = 0;
-			let E  = random(-2,2);
+			let E  = random(-4,4);
 			// if(k==5 && j==5){ E = 2; }
 			let By = 0;
 			let Bz = 0;
@@ -113,5 +113,5 @@ function resizing(){
 	up_trans   = max((windowHeight - interval*(gridsize-1))/2 , 0);
 	scB = interval/8;
 	scE = interval/3;
-	print(interval);
+	// print(interval);
 }
