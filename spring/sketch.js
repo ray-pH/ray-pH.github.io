@@ -85,3 +85,9 @@ function mousePressed() {
 function mouseReleased() {
   move = false;
 }
+
+function windowResized() {
+  resizeCanvas(windowWidth, windowHeight);
+  left = width / 2 - 100;
+  right = width / 2 + 100;
+}
