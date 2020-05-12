@@ -18,7 +18,7 @@ function setup(){
 		for(let k = 0; k < gridsize; k++){
 			let thepos = [j,k];
 			//float E  = 0;
-			let E  = random(-1,1);
+			let E  = random(-2,2);
 			// if(k==5 && j==5){ E = 2; }
 			let By = 0;
 			let Bz = 0;
@@ -64,7 +64,7 @@ class points{
     let tY = this.pos[0]; let tZ = this.pos[1]
     if(this.E>=0){ noStroke(); fill(200,50,5)   ; circle(tY*interval, tZ*interval, scE*this.E); }
     else    { noStroke(); fill(255,255,255); circle(tY*interval, tZ*interval, scE*this.E); }
-    if(magnet){noFill(); strokeWeight(1); stroke(10,10,200); line(tY*interval, tZ*interval, tY*interval + scB*this.By, tZ*interval + scB*this.Bz);}
+    if(magnet){noFill(); strokeWeight(2); stroke(10,10,200); line(tY*interval, tZ*interval, tY*interval + scB*this.By, tZ*interval + scB*this.Bz);}
   }
   
   maxwell3(){
