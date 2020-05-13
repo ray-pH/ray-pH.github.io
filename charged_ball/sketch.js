@@ -2,9 +2,13 @@ let charges = []
 let n_charges = 2;
 let diameter = 50;
 let radius = diameter/2;
+let button;
 
 function setup(){
 	createCanvas(windowWidth, windowHeight);
+	button = createButton('Reset');
+  	button.position(19, 19);
+  	button.mousePressed(reset);
 	let h = windowHeight;
 	let w = windowWidth;
 	charges[0] = new Charge(createVector(1/4*w, 3/4*h),3  ,0);
@@ -23,6 +27,11 @@ function draw(){
 		charges[i].update();
 		charges[i].show();
 	}
+}
+
+function reset(){
+	n_charges = 0;
+	charges = [];
 }
 
 function windowResized() {
