@@ -1,25 +1,23 @@
 let charges = []
 let n_charges = 0;
-let thecharge = 3;
+let thecharge = 20;
+let k = 1;
 let diameter = 50;
 let radius = diameter/2;
 let button;
 
 function setup(){
 	createCanvas(windowWidth, windowHeight);
+	frameRate(60);
 	button = createButton('Reset');
   	button.position(19, 19);
   	button.mousePressed(reset);
 	let h = windowHeight;
 	let w = windowWidth;
-	// charges[0] = new Charge(createVector(1/4*w, 3/4*h),3  ,0);
-	// charges[1] = new Charge(createVector(3/4*w, 1/4*h),-3 ,1);	
-	// charges[2] = new Charge(createVector(600,200),10  ,2);	
 }
 
 function draw(){
 	background(5);
-	// debug();
 	for (let i = 0; i < n_charges; i++){
 		charges[i].drawline();
 		charges[i].calculate();
@@ -65,27 +63,25 @@ function Evector(position, excluded){
 			let q = charges[i].charge;
 			let r = p5.Vector.sub(position,p0);
 			let er = r.copy(); er.normalize();
-			let Ei = p5.Vector.mult(er,q/r.mag());
-			E.add(Ei)
+			let Ei = p5.Vector.mult(er,k*q/r.magSq());
+			E.add(Ei);
 		}
 	}
 	return E;
 }
 
-
-function tooCloseVector(position,excluded){
-	// let exist = false;
+function tooCloseVector(position,excluded,vel){
 	let V = createVector(0,0);
 	for(let i = 0; i < n_charges; i++){
 		if(i != excluded){
 			let p0 = charges[i].pos;
 			let r = p5.Vector.sub(position,p0);
 			let rmag = r.mag();
-			if( rmag < 1.1*diameter ){
-				// exist = true;
-				r.setMag(sqrt(abs(diameter-rmag)));
-				if(rmag > diameter) r.setMag(0);
+			if( rmag < 1*diameter && r.dot(vel) < 0){
+				let themag = (abs(diameter-rmag))/50;
+				r.setMag(themag);
 				V.add(r);
+
 			}
 		}
 	}
@@ -140,18 +136,10 @@ class Charge{
 	calculate(){
 		//calculate forces
 		let E = Evector(this.pos, this.index); //electrostatic force
-		let V = tooCloseVector(this.pos, this.index);
+		let V = tooCloseVector(this.pos, this.index, this.vel); //"collision" fotce
 		E.mult(this.charge);
+		V.mult(abs(this.charge));
 		this.acc = p5.Vector.add(E,V);
-		// let tooClose = tooCloseVector(this.pos, this.index); //check too close
-		// if(!tooClose[1]){
-		// 	let E = Evector(this.pos, this.index); //electrostatic force
-		// 	E.mult(this.charge);
-		// 	this.acc = E.copy();
-		// }else{
-		// 	this.acc = 0;
-		// 	this.vel = tooClose[0].copy();
-		// }
 	}
 
 	update(){
