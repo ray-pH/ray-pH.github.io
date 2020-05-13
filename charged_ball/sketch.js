@@ -45,7 +45,7 @@ function resizing(){
 
 function mouseClicked(){
 	if(mouseX > 80 && mouseY > 45){
-		charges[n_charges] = new Charge(createVector(mouseX, mouseY),thecharge);
+		charges[n_charges] = new Charge(createVector(mouseX, mouseY),thecharge,n_charges);
 		n_charges += 1;
 		thecharge *= -1;
 	}
@@ -72,8 +72,9 @@ function Evector(position, excluded){
 	return E;
 }
 
+
 function tooCloseVector(position,excluded){
-	let exist = false;
+	// let exist = false;
 	let V = createVector(0,0);
 	for(let i = 0; i < n_charges; i++){
 		if(i != excluded){
@@ -81,14 +82,14 @@ function tooCloseVector(position,excluded){
 			let r = p5.Vector.sub(position,p0);
 			let rmag = r.mag();
 			if( rmag < 1.1*diameter ){
-				exist = true;
-				r.setMag(sqrt(diameter-rmag));
+				// exist = true;
+				r.setMag(sqrt(abs(diameter-rmag)));
 				if(rmag > diameter) r.setMag(0);
 				V.add(r);
 			}
 		}
 	}
-	return [V,exist];
+	return V
 }
 
 function OutScreen(pos){
@@ -138,15 +139,19 @@ class Charge{
 
 	calculate(){
 		//calculate forces
-		let tooClose = tooCloseVector(this.pos, this.index); //check too close
-		if(!tooClose[1]){
-			let E = Evector(this.pos, this.index); //electrostatic force
-			E.mult(this.charge);
-			this.acc = E.copy();
-		}else{
-			this.acc = 0;
-			this.vel = tooClose[0].copy();
-		}
+		let E = Evector(this.pos, this.index); //electrostatic force
+		let V = tooCloseVector(this.pos, this.index);
+		E.mult(this.charge);
+		this.acc = p5.Vector.add(E,V);
+		// let tooClose = tooCloseVector(this.pos, this.index); //check too close
+		// if(!tooClose[1]){
+		// 	let E = Evector(this.pos, this.index); //electrostatic force
+		// 	E.mult(this.charge);
+		// 	this.acc = E.copy();
+		// }else{
+		// 	this.acc = 0;
+		// 	this.vel = tooClose[0].copy();
+		// }
 	}
 
 	update(){
