@@ -1,5 +1,6 @@
 let charges = []
-let n_charges = 2;
+let n_charges = 0;
+let thecharge = 3;
 let diameter = 50;
 let radius = diameter/2;
 let button;
@@ -11,8 +12,8 @@ function setup(){
   	button.mousePressed(reset);
 	let h = windowHeight;
 	let w = windowWidth;
-	charges[0] = new Charge(createVector(1/4*w, 3/4*h),3  ,0);
-	charges[1] = new Charge(createVector(3/4*w, 1/4*h),-3 ,1);	
+	// charges[0] = new Charge(createVector(1/4*w, 3/4*h),3  ,0);
+	// charges[1] = new Charge(createVector(3/4*w, 1/4*h),-3 ,1);	
 	// charges[2] = new Charge(createVector(600,200),10  ,2);	
 }
 
@@ -42,10 +43,18 @@ function windowResized() {
 function resizing(){
 }
 
+function mouseClicked(){
+	if(mouseX > 80 && mouseY > 45){
+		charges[n_charges] = new Charge(createVector(mouseX, mouseY),thecharge);
+		n_charges += 1;
+		thecharge *= -1;
+	}
+}
+
 function debug(){
 	textSize(24);fill(255);noStroke();
-	text(mouseX,10,20);
-	text(mouseY,10,40);
+	text(mouseX,30,80);
+	text(mouseY,30,100);
 }
 
 function Evector(position, excluded){
