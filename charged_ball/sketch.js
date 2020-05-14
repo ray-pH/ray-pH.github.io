@@ -19,6 +19,7 @@ function setup(){
 
 function draw(){
 	background(5);
+	// debug();
 	if(menuOpen){ textSize(14); textAlign(LEFT,BOTTOM);fill(255); text(thecharge,75,155); }
 	for (let i = 0; i < n_charges; i++){
 		charges[i].drawline();
@@ -51,7 +52,7 @@ function resizing(){
 }
 
 function mouseClicked(){
-	if(!(mouseX < 80 && mouseY < 45)){
+	if(!(mouseX < 100 && mouseY < 200)){
 		charges[n_charges] = new Charge(createVector(mouseX, mouseY),thecharge,n_charges);
 		n_charges += 1;
 		thecharge *= -1;
@@ -60,8 +61,8 @@ function mouseClicked(){
 
 function debug(){
 	textSize(24);fill(255);noStroke();
-	text(mouseX,30,80);
-	text(mouseY,30,100);
+	text(mouseX,90,80);
+	text(mouseY,90,100);
 }
 
 function Evector(position, excluded){
