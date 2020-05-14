@@ -4,20 +4,22 @@ let thecharge = 20;
 let k = 1;
 let diameter = 50;
 let radius = diameter/2;
-let button;
+let menuOpen = false;
+
+let resetButton, menuButton, pauseButton;
+let showChargeButton; let showCharge = false;
+let plusChargeButton, minusChargeButton, ChargeText;
+let plusRadiusButton, minusRadiusButton, RadiusText;
 
 function setup(){
 	createCanvas(windowWidth, windowHeight);
 	frameRate(60);
-	button = createButton('Reset');
-  	button.position(19, 19);
-  	button.mousePressed(reset);
-	let h = windowHeight;
-	let w = windowWidth;
+	buttonPrep();
 }
 
 function draw(){
 	background(5);
+	if(menuOpen){ textSize(14); textAlign(LEFT,BOTTOM);fill(255); text(thecharge,75,155); }
 	for (let i = 0; i < n_charges; i++){
 		charges[i].drawline();
 		charges[i].calculate();
@@ -29,9 +31,16 @@ function draw(){
 }
 
 function reset(){
-	n_charges = 0;
-	charges = [];
+	n_charges = 0; charges = []; thecharge = 20;
 }
+
+
+
+function addRadius(){ diameter += 5; radius = diameter/2 }
+function subRadius(){ diameter -= 5; radius = diameter/2 }
+function addCharge(){ thecharge += 1; }
+function subCharge(){ thecharge -= 1; }
+function showingCharge(){ showCharge = !showCharge; }
 
 function windowResized() {
 	resizeCanvas(windowWidth, windowHeight);
@@ -107,6 +116,10 @@ class Charge{
 	show(){
 		fill(this.color); stroke(0); strokeWeight(2);
 		circle(this.pos.x,this.pos.y,diameter)
+		if(showCharge){
+			fill(255); noStroke(); textAlign(CENTER,CENTER);
+			textSize(radius/1.7);text(this.charge,this.pos.x,this.pos.y);
+		}
 	}
 
 	drawline(){
@@ -146,4 +159,60 @@ class Charge{
 		this.vel.add(this.acc);
 		this.pos.add(this.vel);
 	}
+}
+
+
+function buttonPrep(){
+	resetButton = createButton('Reset');
+  	resetButton.position(18, 18).size(80,20);
+  	resetButton.mousePressed(reset);
+
+  	menuButton = createButton('Menu');
+  	menuButton.position(18,40).size(80,20);
+  	menuButton.mousePressed(menu);
+
+  	showChargeButton = createButton("Show Charge");
+  	showChargeButton.position(18,64).size(80,20).hide();
+  	showChargeButton.mousePressed(showingCharge);
+  	
+  	RadiusText = createDiv("<a style='color:white'>Radius</a>");
+  	RadiusText.position(18,86).size(80,20).hide();
+
+  	plusRadiusButton = createButton('+');
+  	plusRadiusButton.position(18,108).size(30,20).hide();
+  	plusRadiusButton.mousePressed(addRadius);
+  	minusRadiusButton = createButton('-');
+  	minusRadiusButton.position(52,108).size(30,20).hide();
+  	minusRadiusButton.mousePressed(subRadius);
+
+  	ChargeText = createDiv("<a style='color:white'>Charge</a>");
+  	ChargeText.position(18,140).size(80,20).hide();
+
+  	plusChargeButton = createButton('+');
+  	plusChargeButton.position(18,162).size(30,20).hide();
+  	plusChargeButton.mousePressed(addCharge);
+  	minusChargeButton = createButton('-');
+  	minusChargeButton.position(52,162).size(30,20).hide();
+  	minusChargeButton.mousePressed(subCharge);
+}
+
+function menu(){
+	if(!menuOpen){
+		showChargeButton.show();
+		RadiusText.show();
+		plusRadiusButton.show();
+		minusRadiusButton.show();
+		ChargeText.show();
+		plusChargeButton.show();
+		minusChargeButton.show();
+	}else{
+		showChargeButton.hide();
+		RadiusText.hide();
+		plusRadiusButton.hide();
+		minusRadiusButton.hide();
+		ChargeText.hide();
+		plusChargeButton.hide();
+		minusChargeButton.hide();
+	}
+	menuOpen = !menuOpen;
 }
