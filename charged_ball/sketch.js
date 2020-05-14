@@ -51,7 +51,7 @@ function resizing(){
 }
 
 function mouseClicked(){
-	if(mouseX > 80 && mouseY > 45){
+	if(!(mouseX < 80 && mouseY < 45)){
 		charges[n_charges] = new Charge(createVector(mouseX, mouseY),thecharge,n_charges);
 		n_charges += 1;
 		thecharge *= -1;
