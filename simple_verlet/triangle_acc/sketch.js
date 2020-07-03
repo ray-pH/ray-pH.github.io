@@ -7,14 +7,14 @@ var friction = 0.3;
 
 var tolerance = 0.5;
 var particle_radius = 5;
-var floor;
+var ground;
 
 var accelerometer_x, accelerometer_y,accelerometer_z;
 
 function setup(){
 	createCanvas(windowWidth,windowHeight);
 	frameRate(60);
-	floor = height - particle_radius;
+	ground = height - particle_radius;
 
 	particles[0] = new Particle(50,50,45,45);
 	particles[1] = new Particle(100,50,110,45);
@@ -87,9 +87,9 @@ function mousePressed(){
 window.addEventListener('devicemotion', function(e) 
 {
   // get accelerometer values
-  accelerometer_x = parseInt(e.accelerationIncludingGravity.x);
-  accelerometer_y = parseInt(e.accelerationIncludingGravity.y);
-  accelerometer_z = parseInt(e.accelerationIncludingGravity.z); 
+  accelerometer_x = parseFloat(e.accelerationIncludingGravity.x);
+  accelerometer_y = parseFloat(e.accelerationIncludingGravity.y);
+  accelerometer_z = parseFloat(e.accelerationIncludingGravity.z); 
 });
 
 class Particle{
@@ -102,8 +102,8 @@ class Particle{
 		var vx = this.x - this.ox;
 		var vy = this.y - this.oy;
 
-    //apply friction when contacting floor
-	    if(abs(this.y - floor) < tolerance) vx *= 1 - friction;
+    //apply friction when contacting ground
+	    if(abs(this.y - ground) < tolerance) vx *= 1 - friction;
 	    
 	    this.ox = this.x;
 	    this.oy = this.y;
@@ -116,8 +116,8 @@ class Particle{
 		var vx = this.x - this.ox;
 		var vy = this.y - this.oy;
 
-		if(this.y > floor){
-			this.y = floor;
+		if(this.y > ground){
+			this.y = ground;
 			this.oy = this.y + vy * restitution;
 		}
 		else if(this.y < 0){
