@@ -58,7 +58,7 @@ function calculateG(){
 	gravity = sqrt(accelerometer_x*accelerometer_x + accelerometer_y*accelerometer_y + accelerometer_z*accelerometer_z);
 	console.log(gravity)
 	if(!isNaN(gravity)){
-		gx = accelerometer_x/gravity * g0;
+		gx = - accelerometer_x/gravity * g0;
 		gy = accelerometer_y/gravity * g0;
 	}
 }
