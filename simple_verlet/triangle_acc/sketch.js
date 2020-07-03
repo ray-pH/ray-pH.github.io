@@ -2,7 +2,7 @@ var particles = []
 var rods = []
 
 var g0 = 0.4;
-var gx, gy;
+var gx=0, gy=0.4;
 var restitution = 0.99;
 var friction = 0.3;
 
@@ -23,11 +23,11 @@ function setup(){
 	rods[1] = new Rod(particles[1], particles[2]);
 	rods[2] = new Rod(particles[2], particles[0]);
 
+
 }
 
 function draw(){
 	background(0);
-	calculateG();
 	for (var i = 0; i < particles.length; i++){
 		p = particles[i];
 		if(p !=  null){
@@ -51,12 +51,16 @@ function draw(){
 	}
 	midx /= 3; midy /= 3;
 	point(midx,midy);
+	calculateG();
 }
 
 function calculateG(){
-	gravity = sqrt(accelerometer_x*accelerometer_x + accelerometer_y*accelerometer_y + accelerometer_z+accelerometer_z);
-	gx = accelerometer_x/gravity * g0;
-	gy = accelerometer_y/gravity * g0;
+	gravity = sqrt(accelerometer_x*accelerometer_x + accelerometer_y*accelerometer_y + accelerometer_z*accelerometer_z);
+	console.log(gravity)
+	if(!isNaN(gravity)){
+		gx = accelerometer_x/gravity * g0;
+		gy = accelerometer_y/gravity * g0;
+	}
 }
 
 function mousePressed(){
