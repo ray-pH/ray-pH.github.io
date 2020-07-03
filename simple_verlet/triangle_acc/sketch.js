@@ -57,6 +57,10 @@ function draw(){
 	text(accelerometer_y, 100,150);
 	text(accelerometer_z, 100,200);
 
+	stroke(255,0,0); strokeWeight(5);
+	point(150,150);
+	strokeWeight(3);
+	line(150,150,150-accelerometer_x*100,150+accelerometer_y*100);
 
 }
 
@@ -76,11 +80,6 @@ function mousePressed(){
 		p.ox += dx * forceFactor;
 		p.oy += dy * forceFactor;
 	}
-
-	stroke(255,0,0); strokeWeight(5);
-	point(150,150);
-	strokeWeight(3);
-	line(150,150,150-accelerometer_x*100,150+accelerometer_y*100);
 
 }
 
