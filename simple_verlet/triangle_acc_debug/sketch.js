@@ -1,19 +1,21 @@
 var particles = []
 var rods = []
 
-var g0 = 0.4;
+var g0 = -0.4;
 var gx, gy;
 var restitution = 0.99;
 var friction = 0.3;
 
 var tolerance = 0.5;
 var particle_radius = 5;
+var ground;
 
 var accelerometer_x, accelerometer_y,accelerometer_z;
 
 function setup(){
 	createCanvas(windowWidth,windowHeight);
 	frameRate(60);
+	ground = height - particle_radius;
 
 	particles[0] = new Particle(50,50,45,45);
 	particles[1] = new Particle(100,50,110,45);
@@ -27,7 +29,6 @@ function setup(){
 
 function draw(){
 	background(0);
-	calculateG();
 	for (var i = 0; i < particles.length; i++){
 		p = particles[i];
 		if(p !=  null){
@@ -51,12 +52,17 @@ function draw(){
 	}
 	midx /= 3; midy /= 3;
 	point(midx,midy);
-}
 
-function calculateG(){
-	gravity = sqrt(accelerometer_x*accelerometer_x + accelerometer_y*accelerometer_y + accelerometer_z+accelerometer_z);
-	gx = accelerometer_x/gravity * g0;
-	gy = accelerometer_y/gravity * g0;
+	fill(255); noStroke();
+	text(accelerometer_x, 100,100);
+	text(accelerometer_y, 100,150);
+	text(accelerometer_z, 100,200);
+
+	stroke(255,0,0); strokeWeight(5);
+	point(150,150);
+	strokeWeight(3);
+	line(150,150,150-accelerometer_x*100,150+accelerometer_y*100);
+
 }
 
 function mousePressed(){
@@ -96,37 +102,34 @@ class Particle{
 		var vx = this.x - this.ox;
 		var vy = this.y - this.oy;
 
-	    if(abs(this.y - height + particle_radius) < tolerance) vx *= 1 - friction;
-	    else if(abs(this.y + particle_radius) < tolerance) vx *= 1 - friction;
-	    if(abs(this.x - width + particle_radius) < tolerance) vy *= 1 - friction;
-	    else if(abs(this.x + particle_radius) < tolerance) vy *= 1 - friction;
+    //apply friction when contacting ground
+	    if(abs(this.y - ground) < tolerance) vx *= 1 - friction;
 	    
 	    this.ox = this.x;
 	    this.oy = this.y;
 	    this.x += vx;
 	    this.y += vy;
-	    this.y += gy;
-	    this.x += gx;
+	    this.y -= g;
 		}
 
 		constra(){
 		var vx = this.x - this.ox;
 		var vy = this.y - this.oy;
 
-		if(this.y > height - particle_radius){
-			this.y = height - particle_radius;
+		if(this.y > ground){
+			this.y = ground;
 			this.oy = this.y + vy * restitution;
 		}
-		else if(this.y < particle_radius){
-			this.y = particle_radius;
+		else if(this.y < 0){
+			this.y = 0;
 			this.oy = this.y + vy * restitution;
 		}
-		if(this.x > width - particle_radius){
-			this.x = width - particle_radius;
+		if(this.x > width){
+			this.x = width;
 			this.ox = this.x + vx * restitution;
 		}
-		else if(this.x < particle_radius){
-			this.x = particle_radius;
+		else if(this.x < 0){
+			this.x = 0;
 			this.ox = this.x + vx * restitution;
 		}
 	}
