@@ -77,14 +77,19 @@ function mousePressed(){
 		p.oy += dy * forceFactor;
 	}
 
+	stroke(255,0,0); strokeWeight(5);
+	point(150,150);
+	strokeWeight(3);
+	line(150,150,150-accelerometer_x*100,150+accelerometer_y*100);
+
 }
 
 window.addEventListener('devicemotion', function(e) 
 {
   // get accelerometer values
-  accelerometer_x = e.accelerationIncludingGravity.x;
-  accelerometer_y = e.accelerationIncludingGravity.y;
-  accelerometer_z = e.accelerationIncludingGravity.z; 
+  accelerometer_x = parseInt(e.accelerationIncludingGravity.x);
+  accelerometer_y = parseInt(e.accelerationIncludingGravity.y);
+  accelerometer_z = parseInt(e.accelerationIncludingGravity.z); 
 });
 
 class Particle{
