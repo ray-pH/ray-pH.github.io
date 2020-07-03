@@ -51,10 +51,13 @@ function draw(){
 	}
 	midx /= 3; midy /= 3;
 	point(midx,midy);
-	fill(255);noStroke();
-	text(accelerationX, 100,100)
-	text(accelerationY, 100,150)
-	text(accelerationZ, 100,200)
+
+	fill(255); noStroke();
+	text(accelerometer_x, 100,100);
+	text(accelerometer_y, 100,150);
+	text(accelerometer_z, 100,200);
+
+	
 }
 
 function mousePressed(){
@@ -75,6 +78,14 @@ function mousePressed(){
 	}
 
 }
+
+window.addEventListener('devicemotion', function(e) 
+{
+  // get accelerometer values
+  accelerometer_x = parseInt(e.accelerationIncludingGravity.x);
+  accelerometer_y = parseInt(e.accelerationIncludingGravity.y);
+  accelerometer_z = parseInt(e.accelerationIncludingGravity.z); 
+});
 
 class Particle{
 
