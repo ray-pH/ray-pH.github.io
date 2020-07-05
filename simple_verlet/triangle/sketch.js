@@ -1,13 +1,13 @@
-var particles = []
-var rods = []
+let particles = []
+let rods = []
 
-var g = -0.4;
-var restitution = 0.99;
-var friction = 0.3;
+let g = -0.4;
+let restitution = 0.99;
+let friction = 0.3;
 
-var tolerance = 0.5;
-var particle_radius = 5;
-var floor;
+let tolerance = 0.5;
+let particle_radius = 5;
+let floor;
 
 function setup(){
 	createCanvas(windowWidth,windowHeight);
@@ -26,8 +26,8 @@ function setup(){
 
 function draw(){
 	background(0);
-	for (var i = 0; i < particles.length; i++){
-		p = particles[i];
+	for (let i = 0; i < particles.length; i++){
+		let p = particles[i];
 		if(p !=  null){
 			p.update();
 			p.constra();
@@ -35,16 +35,16 @@ function draw(){
 			p.render();
 		}
 	}
-	for (var i = 0; i < rods.length; i++){
-		r = rods[i]
+	for (let i = 0; i < rods.length; i++){
+		let r = rods[i]
 		if(r != null){
 			r.update();
 			r.render();
 		}
 	}
-	var midx = 0, midy = 0;
-	for (var i = 0; i < particles.length; i++){
-		p = particles[i];
+	let midx = 0, midy = 0;
+	for (let i = 0; i < particles.length; i++){
+		let p = particles[i];
 		midx += p.x; midy += p.y;
 	}
 	midx /= 3; midy /= 3;
@@ -52,18 +52,18 @@ function draw(){
 }
 
 function mousePressed(){
-	var forceFactor = 0.05;
+	let forceFactor = 0.05;
 
-	var midx = 0, midy = 0;
-	for (var i = 0; i < particles.length; i++){
-		p = particles[i];
+	let midx = 0, midy = 0;
+	for (let i = 0; i < particles.length; i++){
+		let p = particles[i];
 		midx += p.x; midy += p.y;
 	}
 	midx /= 3; midy /= 3;
-	var dx = midx - mouseX;
-	var dy = midy - mouseY;
-	for (var i = 0; i < particles.length; i++){
-		p = particles[i];
+	let dx = midx - mouseX;
+	let dy = midy - mouseY;
+	for (let i = 0; i < particles.length; i++){
+		let p = particles[i];
 		p.ox += dx * forceFactor;
 		p.oy += dy * forceFactor;
 	}
@@ -77,8 +77,8 @@ class Particle{
 	}
 
 	update(){
-		var vx = this.x - this.ox;
-		var vy = this.y - this.oy;
+		let vx = this.x - this.ox;
+		let vy = this.y - this.oy;
 
     //apply friction when contacting floor
 	    if(abs(this.y - floor) < tolerance) vx *= 1 - friction;
@@ -91,8 +91,8 @@ class Particle{
 		}
 
 		constra(){
-		var vx = this.x - this.ox;
-		var vy = this.y - this.oy;
+		let vx = this.x - this.ox;
+		let vy = this.y - this.oy;
 
 		if(this.y > floor){
 			this.y = floor;
@@ -132,12 +132,12 @@ class Rod{
 	}
 
 	update(){
-		var dx = this.p1.x - this.p2.x;
-		var dy = this.p1.y - this.p2.y;
-		var dist = sqrt(dx*dx + dy*dy);
-		var dl = this.len - dist;
-		var offsetX = dx * dl/dist/2;
-		var offsetY = dy * dl/dist/2;
+		let dx = this.p1.x - this.p2.x;
+		let dy = this.p1.y - this.p2.y;
+		let dist = sqrt(dx*dx + dy*dy);
+		let dl = this.len - dist;
+		let offsetX = dx * dl/dist/2;
+		let offsetY = dy * dl/dist/2;
 
 		this.p1.x += offsetX;
 		this.p1.y += offsetY;
