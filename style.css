@@ -14,7 +14,7 @@ body {
 }
 
 img.icon {
-    width:120;
+    max-width:120;
     border-radius: 50%;
 }
 
@@ -60,21 +60,94 @@ img.icon {
 }
 
 /* active/current link */
-.topnav a.active {
+/*.topnav a.active {
     background-color: #4CAF50;
+    color: white;
+}*/
+
+div.head {
+    padding: 10;
+    margin: 0;
+    background-color: #333;
     color: white;
 }
 
-div.contentholder {
-    margin: 10 auto;
+section.maincontainer {
+    display: flex;
+    justify-content: center;
+}
+
+.featuredtitle{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+
+.featuredtitle h1{
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+div.main {
+    margin: 10;
     background-color: white;
-    width: 800px;
+    max-width: 800px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     text-align: center;
 }
 
-table.contenttable{
+table.maintable{
     padding: 10;
+}
+
+div.maincontent {
+    padding: 10;
+    max-width: 630px;
+    background-color: white;
+    text-align: center;
+}
+
+td.info {
+    background-color: #333;
+}
+
+div.info {
+    padding: 10;
+    max-width: 170px;   
+    height: 100%;
+    background-color: #333;
+    color:white;    
+    text-align: center;
+}
+
+section.bottomcontainer {
+    display: flex;
+    flex-wrap: wrap-reverse;
+    justify-content: center;
+    margin: 0 auto;
+    background-color: transparent;
+    max-width: 800px;
+    text-align: center;
+}
+
+div.image {
+    background-color: white;
+    max-width: 270px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    text-align: center;
+    /*float: left;*/
+}
+
+div.projects {
+    margin: 0 10 10 10;
+    padding: 10;
+    width: 100%;
+    max-width: 450px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    background-color: white;
+    text-align: center;
+    /*float: left;*/
 }
 
 table.projtable tr td:first-child{
@@ -108,51 +181,28 @@ table.projtable a:link, .projtable a:visited{
 }
 
 table.projtable a:hover{
-    background-color: #2872A2;
-    color: white;
-}
-
-div.content {
-    padding: 10;
-    max-width: 630px;
-    background-color: white;
-    text-align: center;
-}
-
-div.info {
-    padding: 10;
-    max-width: 170px;   
-    background-color: #333;
-    color:white;    
-    text-align: center;
-}
-
-div.contentholder2 {
-    margin: 5 auto;
-    background-color: transparent;
-    width: 800px;
-    text-align: center;
-}
-
-div.image {
-    background-color: white;
-    width: 270px;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    text-align: center;
-}
-
-div.head {
-    padding: 10;
-    margin: 0;
     background-color: #333;
     color: white;
 }
 
-div.content2 {
-    margin-left: 10;
-    padding: 10;
-    width: 450px;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    background-color: white;
-    text-align: center;
+.maincontent a{
+    padding: 5px 2px;
+    border-radius: 10px;
+    background-color: #333;
+    color: white;
+    text-decoration: none;
+    display: inline-block;
+    width: 40%;
+
+}
+
+.maincontent a a:link, .maincontent a:visited{
+    /*background-color: white;*/
+    background-color: #333;
+    color: white;
+}
+
+.maincontent a:hover{
+    background-color: #666;
+    color: white;
 }
