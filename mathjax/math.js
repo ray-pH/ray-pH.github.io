@@ -27,6 +27,13 @@
 
 
 document.addEventListener('DOMContentLoaded', function() {
+
+    // var scale = 'scale(1.5)';
+    // document.body.style.webkitTransform =  scale;    // Chrome, Opera, Safari
+    // document.body.style.msTransform =   scale;       // IE 9
+    // document.body.style.transform = scale;   
+    document.body.style.zoom = 1.5
+
     var typingTimer; 		//timer identifier
     var typingInterval = 400; 	//time in ms
     var input = document.getElementById("input");
