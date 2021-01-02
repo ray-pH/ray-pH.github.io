@@ -1,0 +1,10 @@
+﻿@font-face {
+    font-family: 'Noto Sans Javanese';
+    src: url('noto-javanese.eot'),
+         url('noto-javanese.eot?#iefix') format('embedded-opentype'),
+         url('noto-javanese.woff') format('woff'),
+         url('noto-javanese.woff2') format('woff2'),
+         url('noto-javanese.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
