@@ -138,8 +138,10 @@ for (var i in aksara_swara){
 //special case
 var special_case_regex = [
     [/ꦢ꧀ꦲ꧀/g, "ꦝ꧀"], //dh
+    [/ꦢ꧀ꦃ/g, "ꦝ꧀"], //dh
     [/ꦤ꧀ꦪ꧀/g, "ꦚ꧀"], //ny
     [/ꦠ꧀ꦲ꧀/g, "ꦛ꧀"], // th
+    [/ꦠ꧀ꦃ/g, "ꦛ꧀"], // th
     [/ꦤ꧀ꦒ꧀/g, "ꦁ"] //ng
     // [/ꦤ꧀ꦒ꧀/g, "ꦔ꧀"] //ngꦁ
 ];
