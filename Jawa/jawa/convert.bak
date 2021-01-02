@@ -1,0 +1,99 @@
+/*
+ * convert.js
+ * Copyright (C) 2021 ray <rayhan.azizi9@gmail.com>
+ *
+ * Distributed under terms of the MIT license.
+ */
+
+// var aksara_list = [
+//     [/dha/g, "ꦝ"],
+//     [/nya/g, "ꦚ"],
+//     [/tha/g, "ꦛ"],
+//     [/nga/g, "ꦔ"],
+//     [/ha/g, "ꦲ"],
+//     [/na/g, "ꦤ"],
+//     [/ca/g, "ꦕ"],
+//     [/ra/g, "ꦫ"],
+//     [/ka/g, "ꦏ"],
+//     [/da/g, "ꦢ"],
+//     [/ta/g, "ꦠ"],
+//     [/sa/g, "ꦱ"],
+//     [/wa/g, "ꦮ"],
+//     [/la/g, "ꦭ"],
+//     [/pa/g, "ꦥ"],
+//     [/ja/g, "ꦗ"],
+//     [/ya/g, "ꦪ"],
+//     [/ma/g, "ꦩ"],
+//     [/ga/g, "ꦒ"],
+//     [/ba/g, "ꦧ"]
+// ];
+//
+var aksara_list = [
+    ["dh", "ꦝ"],
+    ["ny", "ꦚ"],
+    ["th", "ꦛ"],
+    ["ng", "ꦔ"],
+    ["h", "ꦲ"],
+    ["n", "ꦤ"],
+    ["c", "ꦕ"],
+    ["r", "ꦫ"],
+    ["k", "ꦏ"],
+    ["d", "ꦢ"],
+    ["t", "ꦠ"],
+    ["s", "ꦱ"],
+    ["w", "ꦮ"],
+    ["l", "ꦭ"],
+    ["p", "ꦥ"],
+    ["j", "ꦗ"],
+    ["y", "ꦪ"],
+    ["m", "ꦩ"],
+    ["g", "ꦒ"],
+    ["b", "ꦧ"]
+];
+
+var pasangan_list = [
+    ["dh", "꧀ꦝ"],
+    ["ny", "꧀ꦚ"],
+    ["th", "꧀ꦛ"],
+    ["ng", "꧀ꦔ"]
+    ["h", "꧀ꦲ"],
+    ["n", "꧀ꦤ"],
+    ["c", "꧀ꦕ"],
+    ["r", "꧀ꦫ"],
+    ["k", "꧀ꦏ"],
+    ["d", "꧀ꦢ"],
+    ["t", "꧀ꦠ"],
+    ["s", "꧀ꦱ"],
+    ["w", "꧀ꦮ"],
+    ["l", "꧀ꦭ"],
+    ["p", "꧀ꦥ"],
+    ["j", "꧀ꦗ"],
+    ["y", "꧀ꦪ"],
+    ["m", "꧀ꦩ"],
+    ["g", "꧀ꦒ"],
+    ["b", "꧀ꦧ"],
+]
+
+var akasara_list_regex;
+for (var al in aksara_list){
+    for (var pl in pasangan_list){
+        var str = al[0].concat(pl[0].concat("a"));
+        val re = new RegExp(str, "g");
+        akasara_list_regex.push([re, al[1].concat(pl[1])]);
+    }
+}
+for (var al in aksara_list){
+    var re = new RegExp(al[0].concat("a"),"g");
+    akasara_list_regex.push([re,al[1]]);
+}
+
+function aksara(input){
+    var res = input;
+    for (var i in akasara_list_regex){
+        var pair = akasara_list_regex[i];
+        res = res.replace(pair[0],pair[1]);
+    }
+    return res;
+}
+
+export { aksara };
