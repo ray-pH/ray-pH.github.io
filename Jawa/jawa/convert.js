@@ -7,7 +7,7 @@
 
 // -------------------------------- array of aksara -------
 
-var aksara = [
+const aksara = [
     ["h", "ꦲ"],
     ["n", "ꦤ"],
     ["c", "ꦕ"],
@@ -27,10 +27,20 @@ var aksara = [
     ["g", "ꦒ"],
     ["b", "ꦧ"],
     ["th", "ꦛ"],
-    ["ng", "ꦔ"]
+    ["ng", "ꦔ"],
+    ["N", "ꦟ"],
+    ["C", "ꦖ"],
+    ["R", "ꦬ"],
+    ["K", "ꦑ"],
+    ["T", "ꦡ"],
+    ["S", "ꦯ"],
+    ["P", "ꦦ"],
+    ["NY", "ꦘ"],
+    ["G", "ꦒ"],
+    ["B", "ꦨ"]
 ];
 
-var aksara_swara = [
+const aksara_swara = [
     ["a", "ꦄ"],
     ["i", "ꦆ"],
     ["u", "ꦈ"],
@@ -38,7 +48,7 @@ var aksara_swara = [
     ["o", "ꦎ"]
 ];
 
-var sandhangan_swara = [
+const sandhangan_swara = [
     ["a", ""],
     ["i", "ꦶ"],
     ["u", "ꦸ"],
@@ -47,22 +57,24 @@ var sandhangan_swara = [
     ["o", "ꦺꦴ"]
 ];
 
-var sandhangan_panyigeging_wanda = [
+const sandhangan_panyigeging_wanda = [
     ["ng", "ꦁ", "ꦔ"],
     ["r", "ꦂ", "ꦫ"],
     ["h", "ꦃ", "ꦲ"]
 ];
 
-var sandhangan_pangkon = "꧀";
+const sandhangan_pangkon = "꧀";
 
-var pada = [
+const pada = [
     [",", "꧈"],
     ["\\.", "꧉"],
     ["\"", "꧊"],
-    [":", "꧇"]
+    [":", "꧇"],
+    ["\\\[", "꧌"],
+    ["\\\]", "꧍"]
 ];
 
-var angka = [
+const angka = [
     ["0", "꧐"],
     ["1", "꧑"],
     ["2", "꧒"],
@@ -138,12 +150,18 @@ for (var i in aksara_swara){
 //special case
 var special_case_regex = [
     [/ꦢ꧀ꦲ꧀/g, "ꦝ꧀"], //dh
-    [/ꦢ꧀ꦃ/g, "ꦝ꧀"], //dh
+    [/ꦢ꧀ꦃ/g,  "ꦝ꧀"], //dh
     [/ꦤ꧀ꦪ꧀/g, "ꦚ꧀"], //ny
-    [/ꦠ꧀ꦲ꧀/g, "ꦛ꧀"], // th
-    [/ꦠ꧀ꦃ/g, "ꦛ꧀"], // th
-    [/ꦤ꧀ꦒ꧀/g, "ꦁ"] //ng
-    // [/ꦤ꧀ꦒ꧀/g, "ꦔ꧀"] //ngꦁ
+    [/ꦤ꧀ꦪ꧀/g, "ꦚ꧀"], //ny
+    [/ꦟ꧀Y/g, "ꦘ"], //NY
+    [/ꦠ꧀ꦃ/g,  "ꦛ꧀"], //th
+    [/ꦤ꧀ꦒ꧀/g,  "ꦁ"],  //ng
+    [/ꦤ꧀ꦒ/g, "ꦔ"], //nga
+    [/꧀ꦫ/g,   "ꦿ"],  //cakra
+    [/ꦿꦼ/g,     "ꦽ"],  //keret
+    [/꧀ꦫꦪ/g,"ꦾ"], //pengkal
+    [/ꦫꦼ/g,    "ꦉ"], //pa cerek
+    [/ꦭꦼ/g,    "ꦊ"]
 ];
 
 
@@ -162,6 +180,13 @@ for (var i in sandhangan_panyigeging_wanda){
 }
 
 
+// var angka_to_number_regex = [];
+// for (var i in angka){
+//     var a = angka[i];
+//     var re = new RegExp( a[1], "g" );
+//     angka_to_number_regex.push([re,a[1]]);
+// }
+
 
 // ------------------------------- conversion function ------
 
@@ -177,5 +202,14 @@ function aksara_convert(input){
     }
     return res;
 }
+
+// function angka_to_number(input){
+//     var res = input;
+//     for (var i in angka_to_number_regex){
+//         var pair = angka_to_number_regex[i];
+//         res = res.replace(pair[0],pair[1]);
+//     }
+//     return res;
+// }
 
 export { aksara_convert };
