@@ -1,70 +1,86 @@
+<!DOCTYPE html>
 <html>
 <head>
-	<title>pH Homepage</title>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-  	<meta name="theme-color" content="#111111">
-	<link rel="stylesheet" type="text/css" href="style.css">
+    <title>pH Homepage</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#111111">
+    <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon">
+    <link rel="icon" href="./favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Ubuntu:regular,medium,bold&subset=Latin">
+    <meta property="og:image" content="https://raw.githubusercontent.com/ray-pH/img/rlogo.png"/>
+    <meta property="og:description" content="Just a page"/>
+    <meta property="og:url"content="https://ray-ph.github.io/"/>
+    <meta property="og:title" content="pH Homepage">
 </head>
-
 <body>
-	
-	<div class="topnav" id="myTopnav">
-	<table class="toptable" align="center"><tr><td>
-		<a href="index.html">Home</a>
-		<a href="index0.html">Projects</a>
-		</td></tr></table>
-	</div>
-	
-	<section class="maincontainer">
-	<div class="main" align="center">
-		<table class="maintable" align="center">
-		<tr><td>
-			<div class="maincontent">
-				<hr><p><b>FEATURED PROJECT</b></p>
-				<div class="featuredtitle">
-					<img src="./img/latexeyicon.png" style="max-width: 100">
-					<h1 style="font-family:Georgia, Helvetica, sans-serif">LATEXEY</h1>
-				</div>
-				<p><b>
-					<a href="https://github.com/ray-pH/Latexey">on GitHub</a>
-				</b></p><hr>
-				Latexey is a tool to write unicode math symbol from latex commands. Available for Windows and GNU/Linux (WIP)
-			</div>
-		</td><td class="info">
-			<div class="info">
-				<img src="./img/rlogo.jpg" class="icon"><hr>
-				<br>Just some webpage to store my random projects<br><br>
-			</div>
-		</td></tr></table>
-	</div>
-	</section>
 
-	<section class="bottomcontainer">
-		<div class="image">
-			<img src="./img/megane.jpg" width="100%">
-			<div class="" style="padding:10">MEGANE</div>
-		</div>
-		<div class="projects">
-			<div class="head">Other Projects</div>
-			<br>
-			<table class="projtable" style="margin-left: auto; margin-right: auto;">
-			<tr><td><a href="./SpaceFrontier">Space Frontier</a></td> 
-				<td>school web project</td></tr>
-			<tr><td><a href="./simple_verlet">Simple Verlet</a></td>
-				<td>simple verlet physics</td></tr>
-			<tr><td><a href="./charged_ball">Charged Ball Electric Field</a></td>
-				<td>electric charge toybox</td></tr>
-			<tr><td><a href="./spring">Spring Test</a></td>
-				<td>sprigy javascript</td></tr>
-			<tr><td><a href="./electromagnetic_field">Electromagnetic Field</a></td>
-				<td>naive EM simulation</td></tr>
-			<tr><td><a href="./pattern1">Pattern 1</a></td>
-				<td>cool pattern</td></tr>
-			</table><br>
-		</div>
-	</section>
-
-	<!-- <div class="footer">This footer will always be positioned at the bottom of the page, but <strong>not fixed</strong>.</div> -->
+    <div class="main-container">
+        <div class="bar top-bar">
+            <table class="toptable" align="center"><tr><td>
+            <a href="index.html">Home</a>
+            <a href="index0.html">Projects</a>
+            </td></tr></table>
+        </div>
+        <div class="grid">
+            <a href="https://github.com/ray-pH/Latexey">
+                <div class="title">Latexey</div>
+                <img src="img/latexeyicon.png">
+                <div class="description">
+                    Latexey is a tool to write unicode math symbol from latex commands.
+                </div>
+            </a>
+            <!-- <a href="https://ray-ph.github.io/Jawa/"> -->
+            <a href="./Jawa">
+                <div class="title">Jawascript</div>
+                <img src="img/jawascript.png" class="dark">
+                <div class="description">
+                    Simple programming language in aksara jawa.
+                </div>
+            </a>
+            <a href="https://github.com/ray-pH/gameo-life">
+                <div class="title">Game Of Life</div>
+                <img src="img/gameolife.png" class="dark">
+                <div class="description">
+                    Simple CLI progarm of Conway's Game of Life in multiple languages
+                </div>
+            </a>
+            <a href="./simple_verlet">
+                <div class="title">Verlet Physics</div>
+                <img src="img/triangle.png" class="dark">
+                <div class="description">
+                    Simple implementation of verlet physics with accelerometer support for orientation
+                </div>
+            </a>
+            <a href="./charged_ball">
+                <div class="title">Electric Sandbox</div>
+                <img src="img/chargedball.png" class="dark">
+                <div class="description">
+                    Sandbox of simple eletric charge interaction (ignoring magnetic field)
+                </div>
+            </a>
+            <a href="./spring">
+                <div class="title">Spring</div>
+                <img src="img/spring.png" class="dark">
+                <div class="description">
+                    Just a spring lol
+                </div>
+            </a>
+            <a href="./SpaceFrontier">
+                <div class="title">Space Frontier</div>
+                <img src="img/sf.png" class="dark">
+                <div class="description">
+                    Random web project for school
+                </div>
+            </a>
+        </div>
+        <div class="bar bottom-bar">
+            <table class="toptable" align="center"><tr><td>
+            <a href="https://github.com/ray-pH">Github</a>
+            </td></tr></table>
+        </div>
+    </div>
+        
 </body>
 </html>
