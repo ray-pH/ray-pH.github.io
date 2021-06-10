@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>MathJax Sandbox</title>
+    <script type="text/javascript" 
+	src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+    </script>
+    <script src="main.js"></script>
+</head>
+
+<body>
+    <div align="center">
+	<textarea id="input" style="padding:10px; float:left; width:50%; height:100%">
+\begin{align*}
+\end{align*}</textarea>
+	<div id="container" style="float:left; width:50%">
+	    <div id="output">$${}$$</div>
+	</div>
+    </div>
+</body>
+
+
+<script>
+    if (MathJax.Hub.Browser.isMSIE) {
+	MathInput.onkeypress = function () {
+	    if (window.event && window.event.keyCode === 13) {this.blur(); this.focus()}
+	}
+    }
+</script>
+
+</html>
