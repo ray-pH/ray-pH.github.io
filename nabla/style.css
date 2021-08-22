@@ -70,6 +70,29 @@ code {
     cursor: pointer;
 }
 
+.a-button-container{
+    margin-top: 20px;
+    margin-bottom: 42px;
+}
+
+.a-button{
+    background-color: var(--primary);
+    border: none;
+    color: black;
+    font-family: 'Noto Sans';
+    text-decoration:none;
+    font-weight: bold;
+    padding: 10px 20px;
+    text-align: center;
+    font-size: 16px;
+    border-radius: 10px;
+}
+
+.a-button:hover{
+    background-color: var(--primary_s);
+    cursor: pointer;
+}
+
 .hr-container{
     margin-left  : auto;
     margin-right : auto;
