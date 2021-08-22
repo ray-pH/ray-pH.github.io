@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Nabla TypeMath</title>
+    <meta charset="utf-8" />
+    <meta name="theme-color" content="#111111">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="./favicon.ico?" type="image/x-icon">
+    <link rel="icon" href="./favicon.ico?" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Ubuntu:regular,medium,bold&subset=Latin">
+    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Noto+Sans:400,700,400italic,700italic&subset=latin,latin-ext">
+    <meta property="og:image" content="https://raw.githubusercontent.com/ray-pH/Nabla-TypeMath-android/master/app/src/main/res/drawable/typemath_icon.png"/>
+    <meta property="og:url"content="https://ray-ph.github.io/nabla/"/>
+    <meta property="og:title" content="Nabla TypeMath">
+    <meta property="og:description" content="Android text expander that allow you to easly type mathematical symbols"/>
+</head>
+
+<body>
+    <div class="main-container">
+        <div class="grid">
+            <div class="logo-container">
+                <img id="logo" src="../img/TypeMath.png"/>
+            </div>
+            <div class="info-container">
+                <div class="title">Nabla TypeMath</div>
+                <div class="subtitle">Latest version : 1.0.1</div>
+                <div class="button-container">
+                    <button type="button" class="button" onclick="downloadLatestAPK()">DOWNLOAD APK</button>
+                </div>
+                <div class="title">Source Code</div>
+                <div class="subtitle">Available on GitHub</div>
+                <div class="button-container">
+                    <button type="button" class="button" onclick="gotoAndroidGithub()">GITHUB</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="hr-container"><hr></div>
+
+    <div class="segment">
+        <div class="label">What is Nabla TypeMath?</div>
+        <div class="desc">
+            Nabla TypeMath is an android application that allow you to easily type mathematical symbols.
+        </div>
+    </div>
+    <div class="segment">
+        <div class="label">How to use it?</div>
+        <div class="desc">
+            Write in any text box, in the form of <code> &lt;initString&gt;&lt;Commands&gt;&lt;endString&gt; </code>
+            and then press <code> spacebar </code> to convert the commands into unicode symbols.
+            <br/><br/>
+            For example, by default <code> &lt;initString&gt; </code> and <code> &lt;endString&gt; </code>
+            So you can write <code> .x^2 + alpha ^2. </code>, press <code> spacebar </code> and the text will
+            be converted into <code> x² + α² </code>
+        </div>
+    </div>
+    <div class="segment">
+        <div class="label">What are the commands</div>
+        <div class="desc">
+            Most of the commands are similar to LaTeX commands, for example
+            <code>int</code>, <code>in</code>, <code>partial</code>, <code>nabla</code>
+            will all be converted into <code>∫</code> , <code>∈</code> , <code>∂</code> , and <code>∇</code> respectively.
+            <br/><br/>
+            More information about the commands is available in the app.
+        </div>
+    </div>
+</body>
+
+<script>
+    function downloadLatestAPK(){
+        let latesturl = 'https://github.com/ray-ph/nabla-typemath-android/releases/download/v1.0.1/nabla-typemath-v1.0.1.apk'
+        window.location.href = latesturl
+    };
+
+    function gotoAndroidGithub(){
+        let androidGithubURL = 'https://github.com/ray-pH/Nabla-TypeMath-android'
+        window.location.href = androidGithubURL
+    }
+</script>
+
+</html>

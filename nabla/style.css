@@ -1,0 +1,131 @@
+:root {
+    --black : #0e0e0e;
+    --white : #fff;
+    --lgrey : #bbb;
+    --grey  : #1e1e1e;
+    --primary   : #02d7c3;
+    --primary_s : #01a696;
+    --animation-time : 0.3s;
+}
+
+body {
+    background-color: var(--black);
+    font-family: 'Noto Sans';
+    color: var(--white);
+    margin-bottom: 64px;
+    /* font-family: "Ubuntu"; */
+}
+
+.head-table{
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 36px;
+}
+
+.head-table td{
+    vertical-align: top;
+    text-align: left;
+}
+
+code {
+    color: var(--lgrey)
+}
+
+.title {
+    font-weight: bold;
+    font-size: 24px;
+    margin-top: 24px;
+    width: fit-content;
+}
+
+.info-container {
+    width: fit-content;
+}
+
+.subtitle{
+    color: var(--lgrey);
+    font-size: 16px;
+    width: fit-content;
+}
+
+.button-container{
+    margin-top:12px;
+    width: fit-content;
+}
+
+.button{
+    background-color: var(--primary);
+    border: none;
+    color: black;
+    font-family: 'Noto Sans';
+    font-weight: bold;
+    padding: 10px 20px;
+    text-align: center;
+    font-size: 16px;
+    border-radius: 10px;
+}
+
+.button:hover{
+    background-color: var(--primary_s);
+    cursor: pointer;
+}
+
+.hr-container{
+    margin-left  : auto;
+    margin-right : auto;
+    margin-top   : 64px;
+    margin-bottom: 32px;
+    width: 90%;
+    max-width: 700px;
+}
+
+#logo {
+    max-width: 200px;
+    margin-right:16px;
+}
+
+.segment{
+    margin-top: 24px;
+    margin-left  : auto;
+    margin-right : auto;
+    width: 90%;
+    max-width: 600px;
+}
+
+.label{
+    border-left: 8px solid var(--primary);
+    padding-left: 16px;
+    font-weight: bold;
+    font-size: 22px;
+    margin-bottom: 8px;
+}
+
+.desc{
+    padding-left: 24px;
+    font-size: 16px;
+}
+
+.main-container {
+    max-width: 800px;
+    margin-top: 40px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.grid { 
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.grid>* {
+    text-align: left;
+    flex-grow: 0;
+    flex-shrink:0;
+}
+
+.logo-container {
+    text-align: right;
+}
