@@ -14,6 +14,7 @@
     <meta property="og:url"content="https://ray-ph.github.io/nabla/"/>
     <meta property="og:title" content="Nabla TypeMath">
     <meta property="og:description" content="Nabla TypeMath is an android application that allow you to easily type mathematical symbols."/>
+    <script src="https://kit.fontawesome.com/a5f4a43381.js" crossorigin="anonymous"></script>
     <script type="text/javascript" defer src="https://donorbox.org/install-popup-button.js"></script>
     <script>window.DonorBox = { widgetLinkClassName: 'custom-dbox-popup' }</script>
 </head>
@@ -25,15 +26,29 @@
                 <img id="logo" src="../img/TypeMath.png"/>
             </div>
             <div class="info-container">
-                <div class="title">Nabla TypeMath</div>
+                <div class="title">
+                    Nabla TypeMath
+                </div>
                 <div class="subtitle">Latest version : 1.0.1</div>
                 <div class="button-container">
-                    <button type="button" class="button" onclick="downloadLatestAPK()">DOWNLOAD APK</button>
+                    <button type="button" class="button" onclick="gotoGooglePlay()">
+                        <i class="fab fa-google-play icon"></i>
+                        GOOGLE PLAY STORE
+                    </button>
+                </div>
+                <div class="button-container">
+                    <button type="button" class="button" onclick="downloadLatestAPK()">
+                        <i class="fab fa-android icon"></i>
+                        DOWNLOAD APK
+                    </button>
                 </div>
                 <div class="title">Source Code</div>
                 <div class="subtitle">Available on GitHub</div>
                 <div class="button-container">
-                    <button type="button" class="button" onclick="gotoAndroidGithub()">GITHUB</button>
+                    <button type="button" class="button" onclick="gotoAndroidGithub()">
+                        <i class="fab fa-github icon"></i>
+                        GITHUB
+                    </button>
                 </div>
             </div>
         </div>
@@ -89,19 +104,24 @@
 </body>
 
 <script>
+    function gotoGooglePlay(){
+        let url = 'https://play.google.com/store/apps/details?id=com.ph.nabla_typemath';
+        window.location.href = url;
+    };
+
     function downloadLatestAPK(){
-        let latesturl = 'https://github.com/ray-ph/nabla-typemath-android/releases/download/v1.0.1/nabla-typemath-v1.0.1.apk'
-        window.location.href = latesturl
+        let url = 'https://github.com/ray-ph/nabla-typemath-android/releases/download/v1.0.1/nabla-typemath-v1.0.1.apk';
+        window.location.href = url;
     };
 
     function gotoAndroidGithub(){
-        let androidGithubURL = 'https://github.com/ray-pH/Nabla-TypeMath-android'
-        window.location.href = androidGithubURL
+        let url = 'https://github.com/ray-pH/Nabla-TypeMath-android';
+        window.location.href = url;
     };
 
     function gotoPrivacyPolicy(){
-        let androidGithubURL = 'https://ray-ph.github.io/nabla/privacy/'
-        window.location.href = androidGithubURL
+        let url = 'https://ray-ph.github.io/nabla/privacy/';
+        window.location.href = url;
     };
 </script>
 
