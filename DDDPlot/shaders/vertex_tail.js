@@ -1,48 +1,5 @@
 // vim: set syntax=cpp:
-export default `#version 300 es
-
-precision highp usampler2D;
-
-out vec3 v_normal;
-flat out int v_discard;
-
-uniform usampler2D u_triTexture;
-uniform mat4 u_mvpMatrix;
-uniform mat4 u_normalMatrix;
-uniform ivec3 u_cellNum;
-uniform vec3 u_cellSize;
-uniform float u_time;
-
-mat2 rotate(float r) {
-  float c = cos(r);
-  float s = sin(r);
-  return mat2(c, s, -s, c);
-}
-
-float sdBox(vec3 p, vec3 b) {
-  p = abs(p) - b;
-  return length(max(p, 0.0)) + min(max(p.x, max(p.y, p.z)), 0.0);
-}
-
-float sdSphere(vec3 p, float r) {
-  return length(p) - r;
-}
-
-float sdTorus(vec3 p, vec2 t) {
-  vec2 q = vec2(length(p.xy) - t.x, p.z);
-  return length(q) - t.y;
-}
-
-float getDistance(vec3 p) {
-    // p.xy *= rotate(u_time * 0.65);
-    // p.xz *= rotate(u_time * 0.85);
-
-    float d0 = sdBox(p, vec3(2.0, 2.5, 3.0));
-    float d1 = sdSphere(p, 3.0);
-    float d2 = sdTorus(p, vec2(3.0, 1.0));
-    // return d2;
-    return (p.y*p.y + p.x*p.x - 1.0);
-}
+export default `
 
 vec3 getNormal(vec3 p) {
   float e = 0.01;
@@ -129,4 +86,5 @@ void main(void) {
     v_discard = 0;
   }
 }
+
 `;
