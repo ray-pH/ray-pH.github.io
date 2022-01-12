@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>QuantumQ : Circuit Puzzle</title>
+    <meta charset="utf-8" />
+    <meta name="theme-color" content="#111111">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="./favicon.ico?" type="image/x-icon">
+    <link rel="icon" href="./favicon.ico?" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Ubuntu:regular,medium,bold&subset=Latin">
+    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Noto+Sans:400,700,400italic,700italic&subset=latin,latin-ext">
+    <!-- <meta property="og:image" content="https://raw.githubusercontent.com/ray-pH/Nabla-TypeMath-android/master/app/src/main/res/drawable/typemath_icon.png"/> -->
+    <meta property="og:url"content="https://ray-ph.github.io/quantumQ/"/>
+    <meta property="og:title" content="QuantumQ">
+    <meta property="og:description" content="QuantumQ is a puzzle game about quantum circuit."/>
+    <script src="https://kit.fontawesome.com/a5f4a43381.js" crossorigin="anonymous"></script>
+    <script type="text/javascript" defer src="https://donorbox.org/install-popup-button.js"></script>
+    <script>window.DonorBox = { widgetLinkClassName: 'custom-dbox-popup' }</script>
+</head>
+
+<body>
+    <div class="main-container">
+        <div class="grid">
+            <div class="logo-container">
+                <img id="logo" src="../img/quantumQfore.png"/>
+            </div>
+            <div class="info-container">
+                <div class="title">
+                    QuantumQ
+                </div>
+                <div class="subtitle">Latest version : 1.0</div>
+                <div class="button-container">
+                    <button type="button" class="button" onclick="gotoGooglePlay()">
+                        <i class="fab fa-google-play icon"></i>
+                        GOOGLE PLAY STORE
+                    </button>
+                </div>
+                <div class="button-container">
+                    <button type="button" class="button" onclick="downloadLatestAPK()">
+                        <i class="fab fa-android icon"></i>
+                        DOWNLOAD APK
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="hr-container"><hr></div>
+
+    <!-- <div class="segment"> -->
+    <!--     <div class="desc"> -->
+    <!--         This project is free and open source, and you can support the developer by clicking the button below. -->
+    <!--         Your support is highly appreciated.<br/> -->
+    <!--         <div class="a-button-container"> -->
+    <!--             <a class="custom-dbox-popup a-button" href="https://donorbox.org/support-nabla-typemath-development"> -->
+    <!--                 DONATE -->
+    <!--             </a> -->
+    <!--         </div> -->
+    <!--     </div> -->
+    <!-- </div> -->
+    <!-- <div class="segment"> -->
+    <!--     <div class="label">What is Nabla TypeMath?</div> -->
+    <!--     <div class="desc"> -->
+    <!--         Nabla TypeMath is an android application that allow you to easily type mathematical symbols. -->
+    <!--     </div> -->
+    <!-- </div> -->
+    <!-- <div class="segment"> -->
+    <!--     <div class="label">How to use it?</div> -->
+    <!--     <div class="desc"> -->
+    <!--         Write in any text box, in the form of <code> &lt;initString&gt;&lt;Commands&gt;&lt;endString&gt; </code> -->
+    <!--         and then press <code> spacebar </code> to convert the commands into unicode symbols. -->
+    <!--         <br/><br/> -->
+    <!--         For example, by default <code> &lt;initString&gt; </code> and <code> &lt;endString&gt; </code> is <code> . </code>. -->  
+    <!--         So you can write <code> .x^2 + alpha ^2. </code>, press <code> spacebar </code> and the text will -->
+    <!--         be converted into <code> x² + α² </code> -->
+    <!--     </div> -->
+    <!-- </div> -->
+    <!-- <div class="segment"> -->
+    <!--     <div class="label">What are the commands</div> -->
+    <!--     <div class="desc"> -->
+    <!--         Most of the commands are similar to LaTeX commands, for example -->
+    <!--         <code>int</code>, <code>in</code>, <code>partial</code>, <code>nabla</code> -->
+    <!--         will all be converted into <code>∫</code> , <code>∈</code> , <code>∂</code> , and <code>∇</code> respectively. -->
+    <!--         <br/><br/> -->
+    <!--         More information about the commands is available in the app. -->
+    <!--     </div> -->
+    <!-- </div> -->
+    <div class="segment">
+        <div class="label">
+            Privacy Policy
+        </div>
+        QuantumQ does not collect any form of user personal data. All of the functionalities of QuantumQ is done locally and does not need internet connection.
+        <div class="button-container">
+            <button type="button" class="button" onclick="gotoPrivacyPolicy()">Privacy Policy Page</button>
+        </div>
+    </div>
+</body>
+
+<script>
+    function gotoGooglePlay(){
+        let url = 'https://play.google.com/store/apps/details?id=com.ph.nabla_typemath';
+        window.location.href = url;
+    };
+
+    function downloadLatestAPK(){
+        let url = 'https://github.com/ray-pH/Nabla-TypeMath-android/releases/download/v1.1/nabla-typemath-v1.1.apk';
+        window.location.href = url;
+    };
+
+    function gotoAndroidGithub(){
+        let url = 'https://github.com/ray-pH/Nabla-TypeMath-android';
+        window.location.href = url;
+    };
+
+    function gotoPrivacyPolicy(){
+        let url = 'https://ray-ph.github.io/nabla/privacy/';
+        window.location.href = url;
+    };
+</script>
+
+</html>
