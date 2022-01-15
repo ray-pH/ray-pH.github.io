@@ -73,7 +73,8 @@ body {
     align-items: center;
     text-align: center;
     text-decoration: none;
-    background-color: white;
+    /* background-color: white; */
+    background-color: #3a3a3a;
     border-radius: 5px;
     /* height: 200px; */
     transition: var(--animation-time);
@@ -117,7 +118,8 @@ body {
     text-decoration: none;
     /* font-weight: n; */
     font-size: 14px;
-    color: var(--black1);
+    color: #ffffff;
+    /* color: var(--black1); */
     padding: 20px;
     margin-bottom: 4px;
 }
