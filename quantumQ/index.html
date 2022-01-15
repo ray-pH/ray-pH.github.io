@@ -33,58 +33,47 @@
                 <div class="button-container">
                     <button type="button" class="button" onclick="gotoGooglePlay()">
                         <i class="fab fa-google-play icon"></i>
-                        GOOGLE PLAY STORE
+                        GOOGLE PLAY
                     </button>
                 </div>
+                <div class="subtitle"> - Android</div>
                 <div class="button-container">
-                    <button type="button" class="button" onclick="downloadLatestAPK()">
-                        <i class="fab fa-android icon"></i>
-                        DOWNLOAD APK
+                    <button type="button" class="button" onclick="gotoItch()">
+                        <i class="fab fa-itch-io icon"></i>
+                        ITCH.IO
+                    </button>
+                </div>
+                <div class="subtitle"> - Windows, Linux</div>
+                <div class="title">Source Code</div>
+                <div class="subtitle">Available on GitHub</div>
+                <div class="button-container">
+                    <button type="button" class="button" onclick="gotoAndroidGithub()">
+                        <i class="fab fa-github icon"></i>
+                        GITHUB
                     </button>
                 </div>
             </div>
         </div>
     </div>
     <div class="hr-container"><hr></div>
-
-    <!-- <div class="segment"> -->
-    <!--     <div class="desc"> -->
-    <!--         This project is free and open source, and you can support the developer by clicking the button below. -->
-    <!--         Your support is highly appreciated.<br/> -->
-    <!--         <div class="a-button-container"> -->
-    <!--             <a class="custom-dbox-popup a-button" href="https://donorbox.org/support-nabla-typemath-development"> -->
-    <!--                 DONATE -->
-    <!--             </a> -->
-    <!--         </div> -->
-    <!--     </div> -->
-    <!-- </div> -->
-    <!-- <div class="segment"> -->
-    <!--     <div class="label">What is Nabla TypeMath?</div> -->
-    <!--     <div class="desc"> -->
-    <!--         Nabla TypeMath is an android application that allow you to easily type mathematical symbols. -->
-    <!--     </div> -->
-    <!-- </div> -->
-    <!-- <div class="segment"> -->
-    <!--     <div class="label">How to use it?</div> -->
-    <!--     <div class="desc"> -->
-    <!--         Write in any text box, in the form of <code> &lt;initString&gt;&lt;Commands&gt;&lt;endString&gt; </code> -->
-    <!--         and then press <code> spacebar </code> to convert the commands into unicode symbols. -->
-    <!--         <br/><br/> -->
-    <!--         For example, by default <code> &lt;initString&gt; </code> and <code> &lt;endString&gt; </code> is <code> . </code>. -->  
-    <!--         So you can write <code> .x^2 + alpha ^2. </code>, press <code> spacebar </code> and the text will -->
-    <!--         be converted into <code> x² + α² </code> -->
-    <!--     </div> -->
-    <!-- </div> -->
-    <!-- <div class="segment"> -->
-    <!--     <div class="label">What are the commands</div> -->
-    <!--     <div class="desc"> -->
-    <!--         Most of the commands are similar to LaTeX commands, for example -->
-    <!--         <code>int</code>, <code>in</code>, <code>partial</code>, <code>nabla</code> -->
-    <!--         will all be converted into <code>∫</code> , <code>∈</code> , <code>∂</code> , and <code>∇</code> respectively. -->
-    <!--         <br/><br/> -->
-    <!--         More information about the commands is available in the app. -->
-    <!--     </div> -->
-    <!-- </div> -->
+    <div class="segment">
+        <div class="desc">
+            This project is free and open source.
+            <!-- This project is free and open source, and you can support the developer by clicking the button below. -->
+            <!-- Your support is highly appreciated.<br/> -->
+            <!-- <div class="a-button-container"> -->
+                <!-- <a class="custom-dbox-popup a-button" href="https://donorbox.org/support-nabla-typemath-development"> -->
+                    <!-- DONATE -->
+                <!-- </a> -->
+            <!-- </div> -->
+        </div>
+    </div>
+    <div class="segment">
+        <div class="label">QuantumQ</div>
+        <div class="desc">
+            Puzzle game about quantum circuit and quantum logic gates.
+        </div>
+    </div>
     <div class="segment">
         <div class="label">
             Privacy Policy
@@ -102,18 +91,18 @@
         window.location.href = url;
     };
 
-    function downloadLatestAPK(){
-        let url = 'https://github.com/ray-pH/Nabla-TypeMath-android/releases/download/v1.1/nabla-typemath-v1.1.apk';
+    function gotoItch(){
+        let url = 'https://ray-ph.itch.io/quantumq';
         window.location.href = url;
     };
 
     function gotoAndroidGithub(){
-        let url = 'https://github.com/ray-pH/Nabla-TypeMath-android';
+        let url = 'https://github.com/ray-pH/quantumQ';
         window.location.href = url;
     };
 
     function gotoPrivacyPolicy(){
-        let url = 'https://ray-ph.github.io/nabla/privacy/';
+        let url = 'https://ray-ph.github.io/quantumQ/privacy/';
         window.location.href = url;
     };
 </script>

@@ -3,8 +3,8 @@
     --white : #fff;
     --lgrey : #bbb;
     --grey  : #1e1e1e;
-    --primary   : #02d7c3;
-    --primary_s : #01a696;
+    --primary   : #01a696;
+    --primary_s : #02d7c3;
     --animation-time : 0.3s;
 }
 
@@ -56,7 +56,7 @@ code {
 .button{
     background-color: var(--primary);
     border: none;
-    color: black;
+    color: white;
     font-family: 'Noto Sans';
     font-weight: bold;
     padding: 10px 20px;
