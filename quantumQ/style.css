@@ -1,5 +1,6 @@
 :root {
-    --black : #0e0e0e;
+    /* --black : #0e0e0e; */
+    --black : #25252a;
     --white : #fff;
     --lgrey : #bbb;
     --grey  : #1e1e1e;
@@ -103,8 +104,9 @@ code {
 }
 
 #logo {
-    max-width: 200px;
-    margin-right:16px;
+    max-width: 400px;
+    margin-right:32px;
+    /* margin-top:32px; */
 }
 
 .segment{

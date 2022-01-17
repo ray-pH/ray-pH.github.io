@@ -15,15 +15,14 @@
     <meta property="og:title" content="QuantumQ">
     <meta property="og:description" content="QuantumQ is a puzzle game about quantum circuit."/>
     <script src="https://kit.fontawesome.com/a5f4a43381.js" crossorigin="anonymous"></script>
-    <script type="text/javascript" defer src="https://donorbox.org/install-popup-button.js"></script>
-    <script>window.DonorBox = { widgetLinkClassName: 'custom-dbox-popup' }</script>
 </head>
 
 <body>
     <div class="main-container">
         <div class="grid">
             <div class="logo-container">
-                <img id="logo" src="../img/quantumQfore.png"/>
+                <!-- <img id="logo" src="../img/quantumQfore.png"/> -->
+                <img id="logo" src="../img/QQ/Feat.png"/>
             </div>
             <div class="info-container">
                 <div class="title">
@@ -47,7 +46,7 @@
                 <div class="title">Source Code</div>
                 <div class="subtitle">Available on GitHub</div>
                 <div class="button-container">
-                    <button type="button" class="button" onclick="gotoAndroidGithub()">
+                    <button type="button" class="button" onclick="gotoGithub()">
                         <i class="fab fa-github icon"></i>
                         GITHUB
                     </button>
@@ -87,7 +86,7 @@
 
 <script>
     function gotoGooglePlay(){
-        let url = 'https://play.google.com/store/apps/details?id=com.ph.nabla_typemath';
+        let url = 'https://play.google.com/store/apps/details?id=com.ph.quantumq';
         window.location.href = url;
     };
 
@@ -96,7 +95,7 @@
         window.location.href = url;
     };
 
-    function gotoAndroidGithub(){
+    function gotoGithub(){
         let url = 'https://github.com/ray-pH/quantumQ';
         window.location.href = url;
     };
