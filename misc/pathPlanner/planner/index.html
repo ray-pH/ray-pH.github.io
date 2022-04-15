@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+  <meta charset="utf-8">
+  <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+  <meta name="theme-color" content="#111111">
+  <title>Path Planner</title>
+  <style>
+    body {
+      margin:0;
+      padding:0;
+      <!-- overflow: hidden; -->
+    }
+    canvas {
+      margin:auto;
+    }
+  </style>
+  <!-- <script src="./p5.js"></script> -->
+  <script src="../../../libraries/p5js/p5.js"></script>
+  <script src="sketch.js"></script>
+</head>
+
+<body>
+    <div style="margin-left:10px">
+    Key bindings:<br>
+    [ : prev-point <br>
+    ] : next-point<br>
+    n : new-point (after highlighted)<br>
+    m : move highlighted point<br>
+    d : delete highlighted point<br>
+    <button onclick="download_path()">save</button> ---
+    <input type="button" id="loadFile" value="load" onclick="document.getElementById('file-input').click();" />
+    <input type="file" style="display:none;" id="file-input" name="file"/>
+    <!-- load : <input type="file" id="file-input"/> -->
+    </div>
+    <div id="sketch-holder"></div>
+</body>
+
+<script>
+    document.getElementById('file-input').addEventListener('change', readSingleFile, false);
+</script>
+
+</html>
