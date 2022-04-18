@@ -59,6 +59,7 @@ function load_str(str){
 function mapx(x){ return map(x, -77.90, 230.90, 318 * img_scale/2, 1194 * img_scale/2); }
 function mapy(y){ return map(y, -17.59, -40.58, 700 * img_scale/2, 766 * img_scale/2); }
 function unmapx(x){ return map(x, 318 * img_scale/2, 1194 * img_scale/2, -77.90, 230.90); }
+// function unmapy(y){ return map(y, 700 * img_scale/2, 766 * img_scale/2, -17.59, -41.50); }
 function unmapy(y){ return map(y, 700 * img_scale/2, 766 * img_scale/2, -17.59, -40.58); }
 
 function draw(){
@@ -109,6 +110,10 @@ function keyPressed(){
     if (key == 'm') {
         poss.splice(active, 1, [xx, yy, 0.0]);
         // active += 1;
+    }
+    if (key == 'j') {
+        poss.splice(active, 1, [xx, yy, 0.0]);
+        active += 1;
     }
     if (key == 'd') {
         poss.splice(active, 1);
