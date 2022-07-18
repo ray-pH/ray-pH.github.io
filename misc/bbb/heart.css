@@ -71,8 +71,8 @@
 }
 
 @keyframes circle-left{
-    90%, 50%{background:rgb(213, 160, 47);}
     50%{transform:scale(1,1);opacity:1;}
+    90%, 50%{background:rgb(213, 160, 47);}
     100%{transform:translate(-40px,-40px);opacity:1;background:rgb(22, 153, 234);}
 }
 
@@ -80,9 +80,9 @@
 
 @keyframes beat{
     0%{-webkit-transform:perspective(320px) translateZ(0px);}
-    20%{-webkit-transform:perspective(320px) translateZ(20px);}
+    20%{-webkit-transform:perspective(320px) translateZ(-20px);}
     25%{-webkit-transform:perspective(320px) translateZ(0px);}
-    30%{-webkit-transform:perspective(320px) translateZ(15px);}
+    30%{-webkit-transform:perspective(320px) translateZ(-15px);}
     35%{-webkit-transform:perspective(320px) translateZ(0px);}
 }
 

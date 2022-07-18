@@ -8,6 +8,7 @@ function initSlideShow(slideshow) {
     var slides = document.querySelectorAll(`#${slideshow.id} [role="list"] .slide`); // Get an array of slides
 
     var index = 0, time = 5000;
+    // var index = 13, time = 50000;
     slides[index].classList.add('active');  
 
     function timeout() {
@@ -29,7 +30,10 @@ function initSlideShow(slideshow) {
             if (index == 11) time = 1000;
             if (index == 13) time = 100000;
 
-            if (index === slides.length) index = 0; 
+            if (index === slides.length) {
+                index = 0; 
+                time  = 5000;
+            }
 
             slides[index].classList.add('active');
             timeout();
