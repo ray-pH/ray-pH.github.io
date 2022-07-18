@@ -5,6 +5,7 @@
 [data-component="slideshow"] .slide.active {
     display: block;
     font-family: 'Noto Sans';
+    font-size: 32pt;
     text-align: center;
     color: #eee;
     margin-top: 15%;
@@ -15,12 +16,23 @@ body {
     overflow: hidden;
 }
 
+.char{
+    font-size: 10em;
+}
 .biggy {
-    font-size: 92pt;
+    /* font-size: 92pt; */
+    font-size: 4em;
 }
 .meddy {
-    font-size: 72pt;
+    /* font-size: 72pt; */
+    font-size: 3em;
+
+}
+.alto {
+    /* font-size: 24pt; */
+    font-size: 2em;
 }
 .smosh {
-    font-size: 24pt;
+    /* font-size: 24pt; */
+    font-size: 1em;
 }
