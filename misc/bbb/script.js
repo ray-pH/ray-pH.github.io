@@ -25,10 +25,10 @@ function initSlideShow(slideshow) {
             if (index == 7) time = 3000;
             if (index == 8) time = 500;
             if (index == 8) time = 5000;
-            if (index == 9) time = 10000;
-            if (index == 10) time = 5000;
-            if (index == 11) time = 1000;
-            if (index == 13) time = 100000;
+            if (index == 9) time = 11000;
+            if (index == 10) time = 8000;
+            if (index == 13) time = 1000;
+            if (index == 15) time = 100000;
 
             if (index === slides.length) {
                 index = 0; 
