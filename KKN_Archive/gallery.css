@@ -8,11 +8,34 @@ Responsive Image gallery Style rules
   box-sizing: border-box;
 }
 
+
+.back {
+    background-color:#288cd0;
+    color: white;
+    padding-bottom: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 10px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 16pt;
+    border-radius: 12px;
+    /* margin-left: 10px; */
+    margin-bottom: 10px;
+    transform: translateY(100px);
+}
+.back:hover {
+    background-color:#9ab6d0;
+    color: white;
+    /* background-color:#F7DF1D; */
+}
+
 body {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .desc {
+    margin-top: 20px;
     margin-bottom: 10px;
 }
 
@@ -26,6 +49,7 @@ body {
 }
 
 .heading-text {
+  display: inline;
   margin-bottom: 2rem;
   font-size: 2rem;
 }

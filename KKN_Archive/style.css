@@ -1,0 +1,32 @@
+/*
+ * style.css
+ * Copyright (C) 2022 ray
+ *
+ * Distributed under terms of the MIT license.
+ */
+
+body {
+    text-align: center;
+    font-family: 'Noto Sans';
+}
+
+.button {
+    margin-bottom: 20px;
+}
+
+a {
+    background-color:#288cd0;
+    color: white;
+    padding: 15px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 14px;
+    border-radius: 12px;
+    margin-left: 10px;
+}
+a:hover {
+    background-color:#9ab6d0;
+    color: white;
+    /* background-color:#F7DF1D; */
+}
+
