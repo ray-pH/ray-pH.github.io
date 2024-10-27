@@ -3,20 +3,8 @@
     /* --grey1  : #1e1e1e; */
     --grey1  : #0e0e0e;
     --grey2  : #3a3a3a;
+    --grey3  : #1e1e1e;
     --animation-time : 0.3s;
-}
-
-::-webkit-scrollbar{
-    width: 12px;
-}
-
-::-webkit-scrollbar-thumb {
-  background: white; 
-  border-radius: 10px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: grey; 
 }
 
 body {
@@ -27,7 +15,7 @@ body {
 }
 
 .main-container {
-    max-width: 800px;
+    max-width: 900px;
     margin-top: 40px;
     margin-left: auto;
     margin-right: auto;
@@ -40,8 +28,19 @@ body {
 }
 
 .top-bar {
-    margin-bottom: 30px;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 50px;
+    padding: 0 10px;
 }
+.top-bar-right {
+    display: flex;
+}
+.page-title {
+    color: white;
+    font-weight: bold;
+}
+
 
 .bottom-bar {
     margin-top: 30px;
@@ -51,97 +50,79 @@ body {
 .bar a{
     padding: 10px;
     text-decoration: none;
-    color: white;
+    color: black;
+    background-color: white;
+    height: fit-content;
     font-weight: bold;
     font-size: 14px;
     border-radius: 20px;
     margin-left: 10px;
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
 }
 
 .bar a:hover{
-    background-color: white;
-    color: black;
-    transition: var(--animation-time);
+    background-color: hsl(0 0 60%);
 }
 
-.grid {
+.section-container {
+    padding: 20px;
+    background-color: var(--grey3);
+    margin-bottom: 2em;
+    border-radius: 20px;
+}
+
+.section-grid {
     display: grid;
-    grid-gap: 10px;
-    /* grid-template-columns: repeat(auto-fit, minmax(186px, 1fr)); */
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    margin-bottom: 60px;
+    grid-gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
 }
-
-.grid>* {
-    align-items: center;
-    text-align: center;
-    text-decoration: none;
-    /* background-color: white; */
-    background-color: var(--grey2);
-    border-radius: 5px;
-    /* height: 200px; */
-    transition: var(--animation-time);
-}
-
-.grid>*:hover{
-    background-color: var(--grey1);
-    border-radius: 0px;
-    box-shadow:0px -2px white inset;
-}
-
 
 .section-title {
-    margin-left: -999rem;
+    margin-left: -3em;
+    margin-bottom: 20px;
     padding-top: 10px;
     padding-bottom: 10px;
-    padding-left: 999rem;
+    padding-left: 3em;
+    border-radius: 20px;
+    width: fit-content;
     padding-right: 50px;
     background-color:#eee;
     font-weight: bold;
     color: black;
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
 }
 
-.grid>* img{
-    display: inline-block;
-    vertical-align: top;
-    width:80px;
-    border-radius: 5px;
-    margin-right: 10px;
-    margin-bottom: 10px;
-}
-
-.title{
-    margin: 0px 0px 10px 0px;
-    padding-bottom: 10px;
-    color: white;
-    text-align: left;
-    padding-left: 20px;
-    font-weight: bold;
-    padding-top: 5px;
-    font-size: 20px;
-
-    background-image: linear-gradient(to right, var(--grey1) 50%, white 50%);
-    background-size: 200% 100%;
-}
-
-.grid>*:hover .title{
-    color : black;
-    background-position: -100% 0;
-    transition: var(--animation-time);
-}
-
-.description{
-    display: inline-block;
-    width: calc(100% - 120px);
-    text-align: left;
+.item-card {
+    display: flex;
+    padding: 15px;
+    border-radius: 20px;
+    background-color: var(--grey2);
     text-decoration: none;
-    font-size: 14px;
-    color: #ffffff;
-    margin-bottom: 10px;
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+}
+.item-card:hover {
+    outline: white solid 2px;
 }
 
-.grid>*:hover .description{
+.item-card-left {
+    margin-right: 15px;
+}
+.item-card-left > img {
+    width: 80px;
+    border-radius: 15px;
+}
+.title {
     color: white;
-    transition: var(--animation-time);
+    font-weight: bold;
 }
-
+.description {
+    font-size:0.8em;
+    color: hsl(0 0 80%);
+}
+.divider {
+    /* height: 1px; */
+    /* background-color: hsl(0 0 30%); */
+    /* margin-top: 12px; */
+    margin-bottom: 10px;
+    /* margin-right: 20px; */
+}
