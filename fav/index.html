@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>pH's Favorites</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Patrick+Hand&family=Patrick+Hand+SC&display=swap" rel="stylesheet">
+        <link href="style.css" rel="stylesheet">
+    </head>
+    <body>
+        
+        <template id="item-template">
+            <div class="item">
+                <div class="box-3d-scene">
+                    <div class="box-3d">
+                        <div class="face front">
+                            <img class="cover" src="">
+                        </div>
+                        <div class="face left"><div class="face-left-content"></div></div>
+                        <div class="face right"></div>
+                        <div class="face top"></div>
+                        <div class="face bottom"></div>
+                        <div class="face back"></div>
+                    </div>
+                </div>
+                <div class="title paper-texture">
+                    <div class="number"></div>
+                    <div class="note"></div>
+                    <span class="title-content">Title: </span>
+                    <span class="subtitle">Subtitle</span>
+                    <div class="alternate-title">日本のタイトル</div>
+                </div>
+            </div>
+        </template>
+        
+        <template id="card-item-template">
+            <div class="item">
+                <div class="box-3d-scene style-card">
+                    <div class="box-3d style-card">
+                        <div class="face front">
+                            <img class="cover" src="">
+                        </div>
+                    </div>
+                </div>
+                <div class="title paper-texture style-card">
+                    <div class="number"></div>
+                    <div class="note"></div>
+                    <span class="title-content">Title: </span>
+                    <span class="subtitle">Subtitle</span>
+                    <div class="alternate-title">日本のタイトル</div>
+                </div>
+            </div>
+            </div>
+        </template>
+        
+        <template id="youtube-item-template">
+            <div class="item">
+                <div class="box-3d-scene style-youtube">
+                    <div class="box-3d style-youtube">
+                        <div class="face front">
+                            <div class="cover style-youtube">
+                                <div class="banner-container">
+                                    <img class="banner" src="">
+                                </div>
+                                <div class="icon-container">
+                                    <img class="icon" src="">
+                                    <div class="name"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- <div class="title paper-texture style-youtube">
+                    <span class="title-content">Title: </span>
+                    <span class="subtitle">Subtitle</span>
+                    <div class="alternate-title">日本のタイトル</div>
+                </div> -->
+            </div>
+        </template>
+        
+        <div class="top-bar">
+            <a href="..">HOME</a>
+        </div>
+        
+        <div class="top-note">
+            [!] Sharing this might be a bad idea. Some crazy folk out there could probably psychoanalyze me based on this and use it against me. 
+            Then again, if their model’s that good, maybe they can recommend me something good.
+        </div>
+        
+        <div class="section">
+            <div class="section-title-wrapper">
+                <div class="section-title paper-texture">
+                    TV Show
+                </div>
+            </div>
+            <div class="content" id="tv-show-content">
+            </div>
+        </div>
+        
+        <div class="section">
+            <div class="section-title-wrapper">
+                <div class="section-title paper-texture">
+                    Anime
+                </div>
+            </div>
+            <div class="content" id="anime-content">
+            </div>
+        </div>
+        
+        <div class="section">
+            <div class="section-title-wrapper">
+                <div class="section-title paper-texture">
+                    Movies
+                </div>
+            </div>
+            <div class="content" id="movies-content">
+            </div>
+        </div>
+        
+        <div class="section">
+            <div class="section-title-wrapper">
+                <div class="section-title paper-texture">
+                    Video Game
+                </div>
+            </div>
+            <div class="content" id="video-game-content">
+            </div>
+        </div>
+        
+        <div class="section">
+            <div class="section-title-wrapper">
+                <div class="section-title paper-texture">
+                    Mobile Game
+                </div>
+            </div>
+            <div class="content" id="mobile-game-content">
+            </div>
+        </div>
+        
+        <div class="section">
+            <div class="section-title-wrapper">
+                <div class="section-title paper-texture">
+                    Youtube Channel
+                </div>
+            </div>
+            <div class="content style-youtube" id="youtube-content">
+            </div>
+        </div>
+        
+        <div class="footer">
+        </div>
+        
+        
+        <script>
+            const itemTemplate = document.getElementById('item-template');
+            const cardItemTemplate = document.getElementById('card-item-template');
+            const youtubeItemTemplate = document.getElementById('youtube-item-template');
+            
+            function toOrdinal(n) {
+                const digit = n % 10;
+                if (digit == 1) return 'st';
+                if (digit == 2) return 'nd';
+                if (digit == 3) return 'rd';
+                return 'th';
+            }
+            
+            function processData(data, container, subtitleSeparator = ': ') {
+                data.forEach((d,i) => {
+                    const item = itemTemplate.content.cloneNode(true);
+                    item.querySelector('.title .title-content').textContent = d.title + (d.subtitle ? subtitleSeparator : '');
+                    item.querySelector('.title .subtitle').textContent = d.subtitle;
+                    item.querySelector('.title .alternate-title').textContent = d.alternate;
+                    item.querySelector('.face-left-content').textContent = d.left ?? d.alternate ?? d.title;
+                    item.querySelector('.cover').src = d.cover;
+                    item.querySelector('.number').textContent = (i+1).toString() + toOrdinal(i+1);
+                    if (d.note) {
+                        item.querySelector('.note').textContent = d.note ?? '';
+                    }
+                    const randomAngle = Math.random() * 8 - 4;
+                    item.querySelector('.title').style.transform = `rotate(${randomAngle}deg)`;
+                    container.appendChild(item);
+                });
+            }
+            
+            
+            const animeData = [
+                {  
+                    title: 'Fullmetal Alchemist', subtitle: 'Brotherhood',
+                    alternate: '鋼の錬金術師', left: '鋼の錬金術師',
+                    cover: './assets/cover-fma.jpg'
+                },
+                {  
+                    title: 'To Your Eternity', subtitle: '',
+                    alternate: '不滅のあなたへ', left: '不滅のあなたへ',
+                    note: 'waiting for the next season*',
+                    cover: './assets/cover-toyoureternity.jpg'
+                },
+                {  
+                    title: 'Hyouka', subtitle: '',
+                    alternate: '氷菓', left: '氷菓',
+                    cover: './assets/cover-hyouka.jpg'
+                },
+                {  
+                    title: 'Danganronpa', subtitle: '',
+                    alternate: 'ダンガンロンパ ', left: 'ダンガンロンパ ',
+                    cover: './assets/cover-danganronpa.jpg'
+                },
+                {
+                    title: 'Frieren', subtitle: 'Beyond Journey\'s End',
+                    alternate: '葬送のフリーレン', left: '葬送のフリーレン',
+                    cover: './assets/cover-frieren.jpg'
+                }
+            ]
+            processData(animeData, document.getElementById('anime-content'));
+            
+            
+            const tvShowData = [
+                {  
+                    title: 'Severance',
+                    note: 'waiting for the next season*',
+                    cover: './assets/cover-severance.jpg'
+                },
+                {  
+                    title: '3 Body Problem', alternate: '三体', 
+                    note: 'waiting for the next season*',
+                    cover: './assets/cover-santi.jpg'
+                },
+                {  
+                    title: 'The Boys',
+                    note: 'waiting for the next season*',
+                    cover: './assets/cover-boys.jpg'
+                },
+                {  
+                    title: 'The Time Traveler\'s Wife',
+                    note: 'i\'m sad that this was discontinued*',
+                    cover: './assets/cover-timetraveler.jpg'
+                },
+                {
+                    title: 'Moon Knight',
+                    cover: './assets/cover-moonknight.jpg'
+                }
+            ]
+            processData(tvShowData, document.getElementById('tv-show-content'));
+            
+            const moviesData = [
+                {  
+                    title: 'Tenet',
+                    cover: './assets/cover-tenet.jpg'
+                },
+                {  
+                    title: 'Oppenheimer',
+                    cover: './assets/cover-oppenheimer.jpg'
+                },
+                {  
+                    title: 'Doctor Strange',
+                    note: 'the second one sucks*',
+                    cover: './assets/cover-drstrange.jpg'
+                },
+                {  
+                    title: 'Interstellar',
+                    cover: './assets/cover-interstellar.jpg'
+                },
+                {  
+                    title: 'Elemental',
+                    cover: './assets/cover-elemental.jpg'
+                },
+            ]
+            processData(moviesData, document.getElementById('movies-content'));
+            
+            const mobileGameData = [
+                {  
+                    title: 'Dicey Elementalist',
+                    // cover: './assets/cover-diceyelementalist.jpg'
+                    cover: './assets/cover-diceyelementalist.webp'
+                },
+                {  
+                    title: 'Sudoku & Variants', subtitle: 'by Logic Wiz',
+                    cover: './assets/cover-sudokuwiz.webp'
+                },
+                {  
+                    title: 'RGB Express',
+                    cover: './assets/cover-rgbexpress.jpg'
+                },
+                {  
+                    title: 'Euclidea',
+                    cover: './assets/cover-euclidea.png'
+                },
+                {  
+                    title: 'Hoplite',
+                    cover: './assets/cover-hoplite.png'
+                },
+                {  
+                    title: 'Mahjong Soul',
+                    cover: './assets/cover-mahjongsoul.jpg'
+                },
+            ]
+            const mobileGameContent = document.getElementById('mobile-game-content');
+            mobileGameData.forEach((data, i) => {
+                const item = cardItemTemplate.content.cloneNode(true);
+                item.querySelector('.title .title-content').textContent = data.title;
+                item.querySelector('.title .subtitle').textContent = data.subtitle ?? '';
+                item.querySelector('.title .alternate-title').textContent = data.alternate ?? '';
+                item.querySelector('.cover').src = data.cover;
+                item.querySelector('.number').textContent = (i+1).toString() + toOrdinal(i+1);
+                const randomAngle = Math.random() * 4 - 2;
+                item.querySelector('.title').style.transform = `rotate(${randomAngle}deg)`;
+                mobileGameContent.appendChild(item);
+            });
+            
+            const videoGameData = [
+                {  
+                    title: 'Shenzhen I/O',
+                    cover: './assets/cover-shenzhenio.jpg'
+                },
+                {  
+                    title: 'Exapunks',
+                    cover: './assets/cover-exapunks.jpg'
+                },
+                {  
+                    title: 'Stardew Valley',
+                    cover: './assets/cover-stardew.png'
+                },
+                {  
+                    title: 'Castle Crashers',
+                    cover: './assets/cover-castlecrashers.png'
+                },
+                {  
+                    title: 'Minecraft',
+                    cover: './assets/cover-minecraft.png'
+                },
+                {  
+                    title: 'Slay the Spire',
+                    cover: './assets/cover-sts.jpg'
+                },
+            ]
+            processData(videoGameData, document.getElementById('video-game-content'), '');
+            
+            const youtubeData = [
+                {  
+                    title: '3Blue1Brown',
+                    cover: './assets/cover-3b1b.jpg',
+                    icon: './assets/icon-3b1b.jpg'
+                },
+                {  
+                    title: 'Alex O\'Connor',
+                    cover: './assets/cover-alex.jpg',
+                    icon: './assets/icon-alex.jpg'
+                },
+                {  
+                    title: 'Tsoding Daily',
+                    cover: './assets/cover-tsoding.jpg',
+                    icon: './assets/icon-tsoding.jpg'
+                },
+                {  
+                    title: 'Dr. Jorge S. Diaz',
+                    cover: './assets/cover-drjk.jpg',
+                    icon: './assets/icon-drjk.jpg'
+                },
+                {  
+                    title: 'Northernlion',
+                    cover: './assets/cover-nl.jpg',
+                    icon: './assets/icon-nl.jpg'
+                },
+            ]
+            const youtubeContent = document.getElementById('youtube-content');
+            youtubeData.forEach(data => {
+                const item = youtubeItemTemplate.content.cloneNode(true);
+                // item.querySelector('.title .title-content').textContent = data.title;
+                // item.querySelector('.title .subtitle').textContent = data.subtitle ?? '';
+                // item.querySelector('.title .alternate-title').textContent = data.alternate ?? '';
+                item.querySelector('.banner').src = data.cover;
+                item.querySelector('.icon').src = data.icon;
+                item.querySelector('.name').textContent = data.title;
+                // const randomAngle = Math.random() * 4 - 2;
+                // item.querySelector('.title').style.transform = `rotate(${randomAngle}deg)`;
+                youtubeContent.appendChild(item);
+            });
+            
+        </script>
+    
+    </body>
+</html>
