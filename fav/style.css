@@ -29,6 +29,7 @@ body {
     margin: auto;
     margin-top: 1em;
     a {
+        color: white;
         font-family: 'Patrick Hand SC';
         font-size: 1.2em;
         font-weight: bold;
