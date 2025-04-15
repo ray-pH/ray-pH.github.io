@@ -12,7 +12,7 @@ body {
     margin: 0;
     background-color: var(--black1);
     /* font-family: 'Noto Sans'; */
-    font-family: 'Noto Sans';
+    font-family: 'Noto Sans', 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
     color: white;
     padding: 0 1em;
     
@@ -104,7 +104,7 @@ body {
         border-radius: 10px;
         
         margin-top: -0.5em;
-        font-family: 'Noto Sans';
+        font-family: 'Noto Sans', 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
         font-weight: bold;
         text-align: center;
         color: rgba(0,0,0,0.8);
