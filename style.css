@@ -111,6 +111,19 @@ body {
     width: 80px;
     border-radius: 15px;
 }
+.item-card-left > .title-alias {
+    width: 80px;
+    height: 80px;
+    border-radius: 15px;
+    background-color: white;
+    color: var(--color, var(--grey2));
+    outline: 4px solid var(--color, var(--grey2));
+    outline-offset: -4px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3em;
+}
 .title {
     color: white;
     font-weight: bold;
